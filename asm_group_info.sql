@@ -22,5 +22,3 @@ select
   USABLE_FILE_MB
 from gv$asm_diskgroup
 order by INST_ID asc;
-
-

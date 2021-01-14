@@ -18,4 +18,3 @@ select 'alter database rename file ' || ''''|| member || '''' || ' to ' || '''' 
 
 spool off
 exit
-

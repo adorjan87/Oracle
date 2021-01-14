@@ -23,5 +23,3 @@ MODE_STATUS,
 REDUNDANCY,
 FAILGROUP
 from v$asm_disk;
-
-

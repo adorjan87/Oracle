@@ -13,9 +13,9 @@ l_alter_str1 VARCHAR2(100);
 
 BEGIN
     l_alter_str1:='alter pluggable database ' || l_pdb_name || ' close immediate';
-    
+
     execute immediate l_alter_str1;
     --DBMS_OUTPUT.PUT_LINE(l_alter_str1);
-  
+
 END;
 /
