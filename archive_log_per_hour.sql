@@ -1,3 +1,4 @@
+-- Write redo change
 set SERVEROUTPUT ON
 COLUMN Log_Switch format 9999
 
@@ -8,4 +9,3 @@ order by 2
 ;
 
 set SERVEROUTPUT OFF
-
