@@ -1,9 +1,10 @@
+--This script shows TS usages
 with ts_total (ts_name, df_total, df_max) as
     (
     select
         tablespace_name,
         sum(bytes),
-        sum(maxbytes)
+        sum(maxbytes) --Max size where datafile can grow
     from dba_data_files
     group by tablespace_name
     ),
@@ -22,12 +23,12 @@ select
     round(tst.df_total/1024/1024,2) as "Physical size (MB)", --Datafile real physical size in filesystem
     round((tst.df_total - tsf.ts_free_space)/1024/1024,2) as "Used (MB)", --Real usages from TS
     round(tsf.ts_free_space/1024/1024,2)  as "Free in TS (MB)", -- Actual free space in TS
-    round(((tst.df_total - tsf.ts_free_space) / tst.df_total) * 100, 2) as "Current usages (%)",
+    round(((tst.df_total - tsf.ts_free_space) / tst.df_total) * 100, 2) as "Current usages (%)", --Usages in % where max size is a current, actual size
     round(((tst.df_total - tsf.ts_free_space) / tst.df_max) * 100, 2) as "Real usages (%)" -- It is a real usages in %. It uses dba_data_files.maxbytes
 from
     ts_total tst,
     ts_free_space tsf
 where
     tst.ts_name = tsf.ts_name
-order by 6 desc
+order by 7 desc
 ;
