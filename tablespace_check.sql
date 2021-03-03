@@ -16,7 +16,6 @@ with ts_total (ts_name, df_total, df_max) as
     from dba_free_space
     group by tablespace_name
     )
-
 select
     tst.ts_name as "TS name",
     round(tst.df_max /1024/1024,2) as "TS can grow (MB)",
