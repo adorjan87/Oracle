@@ -1,4 +1,16 @@
 --This script shows TS usages
+PROMPT =============================================================
+PROMPT TS name: Tablespace ts_name
+PROMPT TS can grow (MB):  TS max physical what able to achieve
+PROMPT Physical size (MB): TS actual real physical size
+PROMPT Used (MB): Ral usages in TS. This size depend on autoextend option
+PROMPT =============================================================
+PROMPT
+
+set lines 9999
+set feedback off
+COLUMN "TS name" FORMAT a12
+
 with ts_total (ts_name, df_total, df_max) as
     (
     select
